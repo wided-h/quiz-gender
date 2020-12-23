@@ -1,5 +1,12 @@
 <p>"Masculin (m) ou féminin (f) ? Devinez le genre,
   entrez votre choix"</p>
-<p><%=@word%></p>
+<p id="demo"></p>
+
+<script>
+    var words, word;
+    words = {nanou: "mf", chichi: "mt"};
+    word = words.word;
+    document.getElementById("demo").innerHTML = word;
+</script>
 <br/>
-<a href=<%= genders_final_score_path %>>votre score est </a>
+<a href=<%=genders_final_score_path %>>votre score est </a>
