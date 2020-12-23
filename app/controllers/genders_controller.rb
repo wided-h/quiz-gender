@@ -9,7 +9,6 @@ class GendersController < ActionController::Base
     lines = file.readlines
     matchdata = lines.map { |line| line.chop.match(/(.*)\..*:(.+)/) }
     @words = matchdata.map { |matchdata| [matchdata[1], matchdata[2]] }.to_h
-    @word = @words.keys.sample
     render '/genders/guess_gender'
     end
 
