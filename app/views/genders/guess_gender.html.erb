@@ -1,12 +1,16 @@
 <p>"Masculin (m) ou féminin (f) ? Devinez le genre,
   entrez votre choix"</p>
-<p id="demo"></p>
+<p id="demo">&copy; nanou déc. 2020</p>
 
 <script>
-    var words, word;
-    words = {nanou: "mf", chichi: "mt"};
-    word = words.word;
-    document.getElementById("demo").innerHTML = word;
+  console.log(1);
+
+  let words = JSON.parse('<%=@words.to_json.html_safe %>');
+  console.log(2);
+ //  let word= words[value];
+  console.log(3);
+
+
 </script>
 <br/>
 <a href=<%=genders_final_score_path %>>votre score est </a>
