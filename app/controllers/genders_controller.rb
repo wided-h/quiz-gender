@@ -5,7 +5,7 @@ class GendersController < ActionController::Base
   end
 
   def guess_gender
-    file = File.open('./mf.txt')
+    file = File.open('./dic.txt')
     lines = file.readlines
     matchdata = lines.map { |line| line.chop.match(/(.*)\..*:(.+)/) }
     @words = matchdata.map { |matchdata| [matchdata[1], matchdata[2]] }.to_h
