@@ -3,13 +3,9 @@
 <p id="demo">&copy; nanou déc. 2020</p>
 
 <script>
-  console.log(1);
-
   let words = JSON.parse('<%=@words.to_json.html_safe %>');
-  console.log(2);
- //  let word= words[value];
-  console.log(3);
-
+  let word= Object.keys(words)[0];
+  document.getElementById("demo").innerHTML = word;
 
 </script>
 <br/>
