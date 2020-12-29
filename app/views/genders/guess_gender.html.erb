@@ -1,12 +1,18 @@
 <p>"Masculin (m) ou féminin (f) ? Devinez le genre,
   entrez votre choix"</p>
-<p id="demo">&copy; nanou déc. 2020</p>
+<p id="demo"></p>
+<div>
+  <button onclick="myFunction()">m</button>
+  <button onclick="myFunction()">f</button>
 
+</div>
 <script>
   let words = JSON.parse('<%=@words.to_json.html_safe %>');
   let word= Object.keys(words)[0];
   document.getElementById("demo").innerHTML = word;
+  let number_gender = Object.values(words)[0];
 
 </script>
 <br/>
 <a href=<%=genders_final_score_path %>>votre score est </a>
+<p>&copy; nanou déc. 2020</p>
