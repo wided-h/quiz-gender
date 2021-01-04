@@ -2,37 +2,41 @@
   entrez votre choix"</p>
 <p id="demo"></p>
 <div>
-  <button onclick="guess('gender')">m</button>
-  <button onclick="guess('gender')">f</button>
+  <button onclick="gue()">m</button>
+  <button onclick="gue()">f</button>
 </div>
-<tr><td><p><input type="text" id="demo" size="20" ></p></td></tr>
+<tr><td><p> <div id="answer"></div> </p></td></tr>
+</tr>
+
 <script>
-  let words = JSON.parse('<%=@words.to_json.html_safe %>');
-  let word= Object.keys(words)[0];
-  document.getElementById("demo").innerHTML = word;
-  let number_gender = Object.values(words)[0];
-  let guess= 'm' || 'f';
-  let score=0;
-  function myFunction(guess)
-  {
-      if (number_gender.indexOf("m"))
-      {
-          (gender = 'm');
-  }
-      else{
-          (gender = 'f');
-  }
-
-      if (guess == gender) {
-          document.getElementById("answer").innerHTML = "bravo";
-          (score += 1);
-      }
-  else {
-          document.getElementById("answer").innerHTML = "perdu";
-      }
-
-  }
+    let words = JSON.parse('<%=@words.to_json.html_safe %>');
+    let word = Object.keys(words)[0];
+    document.getElementById("demo").innerHTML = word;
+    let number_gender = Object.values(words)[0];
+    let guess;
+    let score = 0;
+    let gender;
+  //document.getElementById("demo").addEventListener("m", gue);
+    //document.getElementById("demo").addEventListener("f", gue);
+console.log(3)
+    function g() {
+        if (number_gender.indexOf("m")) {
+            gender = 'm';
+        } else {
+            gender = 'f';
+        }
+    }
+console.log(5)
+        function gue() {
+        if (guess == gender) {
+            document.getElementById("answer").innerHTML = "bravo";
+            score += 1;
+        } else {
+            document.getElementById("answer").innerHTML = "perdu";
+        }
+console.log(1)
+    }
 </script>
 <br/>
-<a href=<%=genders_final_score_path %>>votre score est </a>
+<a href=<%= genders_final_score_path %>>votre score est </a>
 <p>&copy; nanou déc. 2020</p>
