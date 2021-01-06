@@ -1,9 +1,10 @@
 <p>"Masculin (m) ou féminin (f) ? Devinez le genre,
   entrez votre choix"</p>
-<p id="demo"></p>
+<p id="word"></p>
+<div id="gen"></div>
 <div>
-  <button onclick="gue()">m</button>
-  <button onclick="gue()">f</button>
+  <button onclick="gue( )">m</button>
+  <button onclick="gue( )">f</button>
 </div>
 <tr><td><p> <div id="answer"></div> </p></td></tr>
 </tr>
@@ -11,15 +12,16 @@
 <script>
     let words = JSON.parse('<%=@words.to_json.html_safe %>');
     let word = Object.keys(words)[0];
-    document.getElementById("demo").innerHTML = word;
+    document.getElementById("word").innerHTML = word;
     let number_gender = Object.values(words)[0];
     let guess;
     let score = 0;
     let gender;
-  //document.getElementById("demo").addEventListener("m", gue);
-    //document.getElementById("demo").addEventListener("f", gue);
+
+
 console.log(3)
-    function g() {
+    function gen() {
+
         if (number_gender.indexOf("m")) {
             gender = 'm';
         } else {
@@ -28,14 +30,18 @@ console.log(3)
     }
 console.log(5)
         function gue() {
+
         if (guess == gender) {
+
             document.getElementById("answer").innerHTML = "bravo";
             score += 1;
+            console.log(8)
         } else {
             document.getElementById("answer").innerHTML = "perdu";
         }
 console.log(1)
     }
+
 </script>
 <br/>
 <a href=<%= genders_final_score_path %>>votre score est </a>
