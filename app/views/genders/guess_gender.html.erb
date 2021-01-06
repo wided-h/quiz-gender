@@ -1,47 +1,40 @@
 <p>"Masculin (m) ou féminin (f) ? Devinez le genre,
   entrez votre choix"</p>
 <p id="word"></p>
-<div id="gen"></div>
-<div>
-  <button onclick="gue( )">m</button>
-  <button onclick="gue( )">f</button>
-</div>
-<tr><td><p> <div id="answer"></div> </p></td></tr>
-</tr>
-
+<button id='guess_f'>f</button>
+<button id='guess_m'>m</button>
+<p id="comments"></p>
 <script>
     let words = JSON.parse('<%=@words.to_json.html_safe %>');
     let word = Object.keys(words)[0];
-    document.getElementById("word").innerHTML = word;
-    let number_gender = Object.values(words)[0];
-    let guess;
+    document.getElementById("word").innerHTML= word;
+    let gender= Object.values(words)[0];
     let score = 0;
-    let gender;
+    let guessF = document.getElementById('guess_f')
+    let guessM = document.getElementById('guess_m')
+    let commentSection=document.getElementById('comments')
+    let guess = [guessF, guessM];
+    guess.forEach((guess) => {
 
+        guess.addEventListener('click',function (event){
+            console.log(3)
+            let clickedElement=event.target;
+            console.log(4)
+            if (guess === gender) {
+                console.log(5)
+                let clickedElementDataset=clickedElement.dataset;
+                commentSection.innerText=`ta réponse est juste `;
+                console.log(6)
+                score += 1;
 
-console.log(3)
-    function gen() {
-
-        if (number_gender.indexOf("m")) {
-            gender = 'm';
-        } else {
-            gender = 'f';
-        }
-    }
-console.log(5)
-        function gue() {
-
-        if (guess == gender) {
-
-            document.getElementById("answer").innerHTML = "bravo";
-            score += 1;
-            console.log(8)
-        } else {
-            document.getElementById("answer").innerHTML = "perdu";
-        }
-console.log(1)
-    }
-
+            } else {
+                let clickedElementDataset=clickedElement.dataset;
+                console.log(7)
+                commentSection.innerText=`ta réponse est fausse`;
+            }
+console.log(8)
+        })
+    })
 </script>
 <br/>
 <a href=<%= genders_final_score_path %>>votre score est </a>
