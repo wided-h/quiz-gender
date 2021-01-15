@@ -1,40 +1,49 @@
 <p>"Masculin (m) ou féminin (f) ? Devinez le genre,
   entrez votre choix"</p>
 <p id="word"></p>
-<button id='guess_f' id="gender" data-order="1">f</button>
-<button id='guess_m' id="gender" data-order="2">m</button>
+<button id='guess_f' data-gender="f" data-order="1">f</button>
+<button id='guess_m' data-gender="m" data-order="2">m</button>
 <p id="comments"></p>
-
+<p id="score"></p>
 <script>
     let words = JSON.parse('<%=@words.to_json.html_safe %>');
     let word = Object.keys(words)[0];
-    document.getElementById("word").innerHTML= word;
+    document.getElementById('word').innerHTML = word;
     let guessF = document.getElementById('guess_f')
     let guessM = document.getElementById('guess_m')
-    let commentSection=document.getElementById('comments')
-    let guess = [guessF, guessM];
-        let number_gender= Object.values(words)[0];
-        if (number_gender.indexOf("m")) {
-            gender = 'm';
-        } else {
-            gender = 'f';
-        }
-        console.log(1)
-    guess.forEach((gue) => {
-        gue.addEventListener('click',function (event) {
-            let clickedElement=event.target;
+    let commentSection = document.getElementById('comments')
+    let guessGenders = [guessF, guessM];
+    let characteristic = Object.values(words)[0];
+    let gender;
+    let score = 0;
+    let wordCount=0;
+
+    if (characteristic.includes("f")) {
+        gender = "f";
+    } else {
+        gender = "m";
+    }
+
+    guessGenders.forEach((guessGender) => {
+        guessGender.addEventListener('click', (event) => {
+            let clickedElement = event.target;
+            let clickedElementDataset = clickedElement.dataset;
+            let guess = clickedElementDataset.gender;
+            window.clickedElementDataset = clickedElementDataset;
             if (guess === gender) {
-                let clickedElementDataset=clickedElement.dataset;
-                commentSection.innerText=`ta réponse est juste ${JSON.stringify(clickedElementDataset)} `;
-console.log(2)
+                commentSection.innerText = `Bravo`
+                score += 1
+                document.getElementById('score').innerHTML = score;
+                wordCount++;
             } else {
-                let clickedElementDataset=clickedElement.dataset;
-                commentSection.innerText=`ta réponse est fausse ${JSON.stringify(clickedElementDataset)}`;
-        console.log(3)
+                commentSection.innerText = `Perdu`
+                wordCount++;
             }
+
 
         })
     })
+
 </script>
 <br/>
 <a href=<%= genders_final_score_path %>>votre score est </a>
