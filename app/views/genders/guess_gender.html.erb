@@ -16,32 +16,35 @@
     let characteristic = Object.values(words)[0];
     let gender;
     let score = 0;
-    let wordCount=0;
+
 
     if (characteristic.includes("f")) {
         gender = "f";
     } else {
         gender = "m";
     }
-
     guessGenders.forEach((guessGender) => {
         guessGender.addEventListener('click', (event) => {
             let clickedElement = event.target;
             let clickedElementDataset = clickedElement.dataset;
             let guess = clickedElementDataset.gender;
             window.clickedElementDataset = clickedElementDataset;
+
             if (guess === gender) {
-                commentSection.innerText = `Bravo`
+                 commentSection.innerText = `Bravo`;
                 score += 1
                 document.getElementById('score').innerHTML = score;
-                wordCount++;
             } else {
-                commentSection.innerText = `Perdu`
-                wordCount++;
+                commentSection.innerText = `Perdu`;
             }
+            setTimeout(function() {
+                document.getElementById('comments').innerHTML = "";
+                document.getElementById('score').innerHTML = "";
+            },1000);
 
 
         })
+
     })
 
 </script>
