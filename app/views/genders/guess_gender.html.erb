@@ -1,5 +1,7 @@
 <p>"Masculin (m) ou féminin (f) ? Devinez le genre,
   entrez votre choix"</p>
+<p>Le mot est-il masculin (m) ou féminin (f)  ? </p>
+<br/>
 <div id="word"></div>
 <br/>
 <button id='guess_f' data-gender="f">f</button>
@@ -60,7 +62,7 @@
                     commentSection.innerHTML = "";
                     guessF.disabled = false;
                     guessM.disabled = false;
-                }, 2000)
+                }, 1000)
             } else {
                 nextWordSection.style.display = 'none';
                 guessM.style.display = 'none';
