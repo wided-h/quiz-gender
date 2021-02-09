@@ -14,8 +14,4 @@ class GendersController < ActionController::Base
     render '/genders/guess_gender'
     end
 
-  def final_score
-    render '/genders/final_score'
-  end
-
 end
