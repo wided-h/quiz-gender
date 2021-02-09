@@ -1,53 +1,93 @@
 <p>"Masculin (m) ou féminin (f) ? Devinez le genre,
   entrez votre choix"</p>
-<p id="word"></p>
-<button id='guess_f' data-gender="f" data-order="1">f</button>
-<button id='guess_m' data-gender="m" data-order="2">m</button>
-<p id="comments"></p>
-<p id="score"></p>
+<div id="word"></div>
+<br/>
+<button id='guess_f' data-gender="f">f</button>
+<button id='guess_m' data-gender="m">m</button>
+<br/>
+<div id="comments"></div>
+<br/>
+<div id="score-section">Votre score : <span id='score'></span>/20</div>
+
 <script>
-    let words = JSON.parse('<%=@words.to_json.html_safe %>');
-    let word = Object.keys(words)[0];
-    document.getElementById('word').innerHTML = word;
+    let wordsHash = JSON.parse('<%=@words.to_json.html_safe %>');
+    let wordsArray = Object.keys(wordsHash);
+    let word = wordsArray[0];
+    let characteristicsArray = Object.values(wordsHash)
+    let characteristic = characteristicsArray[0];
+
     let guessF = document.getElementById('guess_f')
     let guessM = document.getElementById('guess_m')
     let commentSection = document.getElementById('comments')
-    let guessGenders = [guessF, guessM];
-    let characteristic = Object.values(words)[0];
+    let nextWordSection = document.getElementById('word');
+    let counter = document.getElementById('score');
+    let scoreSection = document.getElementById('score-section');
+    scoreSection.style.display = 'none'
+
+
+    nextWordSection.innerHTML = word;
+    let guessGendersButtons = [guessF, guessM];
     let gender;
     let score = 0;
+    let index = 0;
 
 
-    if (characteristic.includes("f")) {
-        gender = "f";
-    } else {
-        gender = "m";
-    }
-    guessGenders.forEach((guessGender) => {
-        guessGender.addEventListener('click', (event) => {
+    guessGendersButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            guessF.disabled = true;
+            guessM.disabled = true;
+            if (characteristic.includes("f")) {
+                gender = "f";
+            } else {
+                gender = "m";
+            }
             let clickedElement = event.target;
             let clickedElementDataset = clickedElement.dataset;
             let guess = clickedElementDataset.gender;
-            window.clickedElementDataset = clickedElementDataset;
-
             if (guess === gender) {
-                 commentSection.innerText = `Bravo`;
-                score += 1
-                document.getElementById('score').innerHTML = score;
+                commentSection.innerText = `Bravo`;
+                score++;
+                scoreSection.style.display = '';
+                counter.innerHTML = score;
             } else {
                 commentSection.innerText = `Perdu`;
             }
-            setTimeout(function() {
-                document.getElementById('comments').innerHTML = "";
-                document.getElementById('score').innerHTML = "";
-            },1000);
+            if (index < 19) {
+                index++;
+                nextWordSection.innerHTML = wordsArray[index];
+                characteristic = characteristicsArray[index];
+                setTimeout(function () {
+                    commentSection.innerHTML = "";
+                    guessF.disabled = false;
+                    guessM.disabled = false;
+                }, 2000)
+            } else {
+                nextWordSection.style.display = 'none';
+                guessM.style.display = 'none';
+                guessF.style.display = 'none';
+                counter.innerHTML = score;
 
+                if (score < 10) {
+                    commentSection.innerText = 'Moyen';
+                } else if (score > 10 && score < 15) {
+                    commentSection.innerText = 'Bien';
+                } else {
+                    commentSection.innerText = 'Excellent';
+                }
+
+            }
 
         })
 
     })
 
 </script>
+
 <br/>
-<a href=<%= genders_final_score_path %>>votre score est </a>
+<br/>
+<a href=<%= genders_guess_gender_path %>>recommencez </a>
+<br/>
+<br/>
+<p> ou </p>
+<a href=<%= root_path %>>retour au menu </a>
 <p>&copy; nanou déc. 2020</p>
