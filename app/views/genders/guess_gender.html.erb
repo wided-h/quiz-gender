@@ -69,9 +69,9 @@
                 guessF.style.display = 'none';
                 counter.innerHTML = score;
 
-                if (score < 10) {
+                if (score <= 10) {
                     commentSection.innerText = 'Moyen';
-                } else if (score > 10 && score < 15) {
+                } else if (score > 10 && score <= 15) {
                     commentSection.innerText = 'Bien';
                 } else {
                     commentSection.innerText = 'Excellent';
