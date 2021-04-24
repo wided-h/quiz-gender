@@ -100,7 +100,7 @@ Aveyronnais,.N:ms:mp.
 Aveyronnaise,Aveyronnais.N:fs.
 Aveyronnaises,Aveyronnais.N:fp.
 Avoriazien,.N:ms.
-Avoriazienne,Avoriazien.N:fs.
+Avoriazgienne,Avoriazien.N:fs.
 Avoriaziennes,Avoriazien.N:fp.
 Avoriaziens,Avoriazien.N:mp.
 Aymara,.N:ms:fs.
