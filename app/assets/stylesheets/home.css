@@ -1,0 +1,57 @@
+body {
+    background-color: powderblue;
+}
+
+#flex-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    width: 100%;
+
+}
+
+#flex-container-text {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+    margin-left: 10%;
+    width: 80%;
+    background-color: #52b599;
+    border-radius: 1rem;
+}
+
+#text {
+    margin: 3rem;
+}
+
+#text1 {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+#text2 {
+    font-size: 1.3rem;
+}
+
+#dame {
+    max-width: 35rem;
+    max-height: 30rem;
+    position: absolute;
+    left: 57rem;
+    top: 7rem;
+}
+
+.href {
+    background-color: coral;
+    align-self: flex-start;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 2rem;
+}
+
+.href > a {
+    font-weight: bolder;
+    font-size: larger;
+    color: white;
+    text-decoration: none;
+}

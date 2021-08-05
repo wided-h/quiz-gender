@@ -10,6 +10,14 @@
 <div id="comments"></div>
 <br/>
 <div id="score-section">Votre score : <span id='score'></span>/20</div>
+<br/>
+<br/>
+<a href=<%= genders_guess_gender_path %>>recommencez </a>
+<br/>
+<br/>
+<p> ou </p>
+<a href=<%= root_path %>>retour au menu </a>
+<p>&copy; nanou déc. 2020</p>
 
 <script>
     let wordsHash = JSON.parse('<%=@words.to_json.html_safe %>');
@@ -84,12 +92,3 @@
     })
 
 </script>
-
-<br/>
-<br/>
-<a href=<%= genders_guess_gender_path %>>recommencez </a>
-<br/>
-<br/>
-<p> ou </p>
-<a href=<%= root_path %>>retour au menu </a>
-<p>&copy; nanou déc. 2020</p>

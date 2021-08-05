@@ -1,12 +1,19 @@
-<h1> Le genre des noms communs</h1>
-<br/>
-<br/>
-<p> Testez vos connaissances</p>
-<p>ou</p>
-<p>Entrainez-vous</p>
-<p>sur le genre des noms communs: masculin ou féminin</p>
-<br/>
-<br/>
-<a href=<%= genders_guess_gender_path %>>Lancez le quiz </a>
+<%= stylesheet_link_tag 'home.css' %>
+<div id="flex-container">
+  <div id="flex-container-text">
+    <div id="text">
+      <h1 id="text1"> Le genre des noms communs</h1>
+      <br/>
+      <p id="text2"> Testez vos connaissances ou Entrainez-vous sur: </p>
+      <h2 class="head2"> le genre des noms communs: masculin ou féminin</h2>
+      <br/>
+      <br/>
+    </div>
+    <div class="href">
+      <a href=<%= genders_guess_gender_path %>>Lancer le quiz </a>
+    </div>
 
 
+  </div>
+  <%= image_tag('dame.png', id: "dame") %>
+</div>
