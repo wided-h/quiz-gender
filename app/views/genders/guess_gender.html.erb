@@ -1,23 +1,36 @@
-<p>"Masculin (m) ou féminin (f) ? Devinez le genre,
+<%= stylesheet_link_tag 'guess_gender.css' %>
+</div>
+<%= image_tag('nounours.svg', id: "nounours") %>
+</div>
+<div id="flex_container1">
+<p>"Masculin 👨 ou féminin 👩 ? Devinez le genre,
   entrez votre choix"</p>
-<p>Le mot est-il masculin (m) ou féminin (f)  ? </p>
+</div>
+<div id="flex_container2">
+<p id="text1">Le mot est-il masculin 👨 ou féminin 👩  ? </p>
+</div>
 <br/>
+<div id="flex-container3">
 <div id="word"></div>
-<br/>
-<button id='guess_f' data-gender="f">f</button>
-<button id='guess_m' data-gender="m">m</button>
+<div class="button_container">
+<button class="button" id='guess_m' data-gender="m">👨</button>
+<button class="button" id='guess_f' data-gender="f">👩</button>
+</div>
+
 <br/>
 <div id="comments"></div>
+</div>
 <br/>
 <div id="score-section">Votre score : <span id='score'></span>/20</div>
 <br/>
 <br/>
-<a href=<%= genders_guess_gender_path %>>recommencez </a>
+<a href=<%= genders_guess_gender_path %>>recommencer </a>
 <br/>
 <br/>
 <p> ou </p>
 <a href=<%= root_path %>>retour au menu </a>
-<p>&copy; nanou déc. 2020</p>
+<p>&copy; nanou🐻😍 déc. 2020</p>
+
 
 <script>
     let wordsHash = JSON.parse('<%=@words.to_json.html_safe %>');
@@ -55,12 +68,12 @@
             let clickedElementDataset = clickedElement.dataset;
             let guess = clickedElementDataset.gender;
             if (guess === gender) {
-                commentSection.innerText = `Bravo`;
+                commentSection.innerText = `Bravo👏`;
                 score++;
                 scoreSection.style.display = '';
                 counter.innerHTML = score;
             } else {
-                commentSection.innerText = `Perdu`;
+                commentSection.innerText = `Perdu👎`;
             }
             if (index < 19) {
                 index++;
@@ -78,11 +91,11 @@
                 counter.innerHTML = score;
 
                 if (score <= 10) {
-                    commentSection.innerText = 'Moyen';
+                    commentSection.innerText = 'Moyen 😞';
                 } else if (score > 10 && score <= 15) {
-                    commentSection.innerText = 'Bien';
+                    commentSection.innerText = 'Bien 😺';
                 } else {
-                    commentSection.innerText = 'Excellent';
+                    commentSection.innerText = 'Excellent 🎉🎈🍻';
                 }
 
             }
