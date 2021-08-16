@@ -1,34 +1,40 @@
 <%= stylesheet_link_tag 'guess_gender.css' %>
+<div class="href2">
+  <a href=<%= root_path %>>⬅ Retour </a>
+</div>
 </div>
 <%= image_tag('nounours.svg', id: "nounours") %>
 </div>
+
 <div id="flex_container1">
-<p>"Masculin 👨 ou féminin 👩 ? Devinez le genre,
-  entrez votre choix"</p>
+  <p>"Masculin 👨 ou féminin 👩 ? Devinez le genre,
+    entrez votre choix"</p>
 </div>
 <div id="flex_container2">
-<p id="text1">Le mot est-il masculin 👨 ou féminin 👩  ? </p>
+  <p id="text1">Le mot est-il masculin 👨 ou féminin 👩 ? </p>
 </div>
 <br/>
 <div id="flex-container3">
-<div id="word"></div>
-<div class="button_container">
-<button class="button" id='guess_m' data-gender="m">👨</button>
-<button class="button" id='guess_f' data-gender="f">👩</button>
-</div>
+  <div id="word"></div>
+  <div class="button_container">
+    <button class="button" id='guess_m' data-gender="m">👨</button>
+    <button class="button" id='guess_f' data-gender="f">👩</button>
+  </div>
 
-<br/>
-<div id="comments"></div>
+  <br/>
+  <div id="comments"></div>
 </div>
 <br/>
 <div id="score-section">Votre score : <span id='score'></span>/20</div>
 <br/>
 <br/>
-<a href=<%= genders_guess_gender_path %>>recommencer </a>
+<div class="href1">
+  <a href=<%= genders_guess_gender_path %>>recommencer</a>
+</div>
 <br/>
 <br/>
-<p> ou </p>
-<a href=<%= root_path %>>retour au menu </a>
+
+
 <p>&copy; nanou🐻😍 déc. 2020</p>
 
 
