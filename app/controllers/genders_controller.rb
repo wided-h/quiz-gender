@@ -1,4 +1,4 @@
-class GendersController < ActionController::Base
+class GendersController < ApplicationController
 
   def home
     render '/genders/home'

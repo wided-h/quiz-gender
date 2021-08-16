@@ -55,9 +55,41 @@ body {
     color: white;
     text-decoration: none;
 }
-@media (max-width:400px) {
+
+@media screen and (max-width: 375px) {
+
+    #flex-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        width: 100%;
+
+    }
+
+    #flex-container-text {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 100%;
+        background-color: #52b599;
+        border-radius: 1rem;
+    }
+
+    #text {
+        margin-top: auto;
+        position: center;
+
+    }
+
     #text1 {
         font-size: 1.5rem;
         font-weight: bolder;
+    }
+    #dame {
+        max-width: 15rem;
+        max-height: 10rem;
+        position: absolute;
+        left: 10rem;
+        top: 23rem;
     }
 }
