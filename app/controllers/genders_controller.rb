@@ -6,7 +6,7 @@ class GendersController < ApplicationController
 
   def guess_gender
     n=20
-    file = File.open('./mf.txt')
+    file = File.open("#{Rails.root}/mf.txt")
     lines = file.readlines
     matchdata = lines.map { |line| line.chop.match(/(.*)\..*:(.+)/) }
     words = matchdata.map { |matchdata|
